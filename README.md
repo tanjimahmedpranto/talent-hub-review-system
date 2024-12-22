@@ -56,27 +56,31 @@ JWT_SECRET=4350c8f38babcf2f2c840bd33ce0360f8480759cb64be4e84605a6581922ca015aa87
 
 ### Running the Project
 
-1. Start the Backend server:
-   cd backend
+Start the Backend server:
+
+1. cd backend
    npm start
 
-2. Start the Frontend server project directory:
-   npm run dev
+Start the Frontend server project directory: 2. npm run dev
 
 3. Access the Application
    Visit http://localhost:5173 in your browser.
 
-API Endpoints
-User Routes
-POST /api/users/signup - Register a new user.
-POST /api/users/login - Login a user.
-GET /api/users/me - Fetch logged-in user's details.
-Review Routes
-GET /api/reviews/service/:id - Get reviews for a service.
-POST /api/reviews - Add a review for a service.
+### API Endpoints
 
-Environment Configuration
-Backend:
-MONGO_URI: MongoDB connection string.
-PORT: Port for the backend server.
-JWT_SECRET: Secret key for JWT authentication.
+### User Routes
+
+1. POST /api/users/signup - Register a new user.
+2. POST /api/users/login - Login a user.
+3. GET /api/users/me - Fetch logged-in user's details.
+
+### Review Routes
+
+1. GET /api/reviews/service/:id - Get reviews for a service.
+2. POST /api/reviews - Add a review for a service.
+
+### Environment Configuration Backend:
+
+1. MONGO_URI: MongoDB connection string.
+2. PORT: Port for the backend server.
+3. JWT_SECRET: Secret key for JWT authentication.
