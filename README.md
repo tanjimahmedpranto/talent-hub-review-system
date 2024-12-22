@@ -64,6 +64,11 @@ Start the Frontend server project directory:
 
    Visit http://localhost:5173 in your browser.
 
+### Dummy Users for Testing:
+
+Email: test1@email.com, test2@email.com
+Password: 1 (same password for all test user)
+
 ### Add a .env file (IF NOT AVAILABLE) in the backend/ directory with the following content:
 
 MONGO_URI=mongodb+srv://tanjim:tanjimpassword@cluster0.3zncv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
