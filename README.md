@@ -59,11 +59,15 @@ JWT_SECRET=4350c8f38babcf2f2c840bd33ce0360f8480759cb64be4e84605a6581922ca015aa87
 Start the Backend server:
 
 1. cd backend
+
    npm start
 
-Start the Frontend server project directory: 2. npm run dev
+Start the Frontend server project directory:
 
-3. Access the Application
+2. npm run dev
+
+3. Access the Application:
+
    Visit http://localhost:5173 in your browser.
 
 ### API Endpoints
