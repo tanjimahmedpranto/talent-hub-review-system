@@ -12,11 +12,13 @@ const ServicesPage = () => {
             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-200 border border-gray-300"
           >
             <div className="relative pb-2/3 mb-4">
-              <img
-                src={item.imageUrl}
-                alt={item.name}
-                className="h-full w-full object-cover rounded-lg"
-              />
+              <Link to={`/services/${item.id}`}>
+                <img
+                  src={item.imageUrl}
+                  alt={item.name}
+                  className="h-full w-full object-cover rounded-lg"
+                />
+              </Link>
             </div>
             <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
             <p className="text-gray-600 mb-4">
