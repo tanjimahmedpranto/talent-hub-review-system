@@ -72,7 +72,9 @@ Password: 1 (same password for all test user)
 ### Add a .env file (IF NOT AVAILABLE) in the backend/ directory with the following content:
 
 MONGO_URI=mongodb+srv://tanjim:tanjimpassword@cluster0.3zncv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 PORT=5000
+
 JWT_SECRET=4350c8f38babcf2f2c840bd33ce0360f8480759cb64be4e84605a6581922ca015aa872cea803382205e4a1447191b09fac3f8547b7ada2de52858deb982797ff
 
 ### API Endpoints
