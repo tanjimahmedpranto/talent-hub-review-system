@@ -1,5 +1,5 @@
 import axios from "axios";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // Action Types
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGOUT = "LOGOUT";
@@ -23,7 +23,10 @@ export const logout = () => ({
 // Login action (JWT Authentication)
 export const loginUser = (email, password) => async (dispatch) => {
   try {
-    const response = await axios.post("/api/users/login", { email, password });
+    const response = await axios.post(`${API_BASE_URL}/api/users/login`, {
+      email,
+      password,
+    });
     const { token, userData } = response.data;
 
     // Save token to localStorage (optional)
@@ -41,7 +44,10 @@ export const loginUser = (email, password) => async (dispatch) => {
 // Register action
 export const registerUser = (formData) => async (dispatch) => {
   try {
-    const response = await axios.post("/api/users/signup", formData);
+    const response = await axios.post(
+      `${API_BASE_URL}/api/users/signup`,
+      formData
+    );
     const { data } = response;
 
     // Dispatch register success action
