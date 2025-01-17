@@ -4,6 +4,7 @@ import { servicesData } from "../data/items";
 import Rating from "../components/Rating";
 import axios from "axios";
 import Modal from "../components/Modal";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ServiceDetailsPage = () => {
   const { id } = useParams();
@@ -21,7 +22,9 @@ const ServiceDetailsPage = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`/api/reviews/service/${id}`);
+        const response = await axios.get(
+          `${API_BASE_URL}/api/reviews/service/${id}`
+        );
         setReviews(response.data);
 
         // NEW CODE: Check if the current user has already reviewed the service
