@@ -30,7 +30,7 @@ const ServiceDetailsPage = () => {
         // NEW CODE: Check if the current user has already reviewed the service
         const token = localStorage.getItem("token");
         if (token) {
-          const userResponse = await axios.get("/api/users/me", {
+          const userResponse = await axios.get(`${API_BASE_URL}/api/users/me`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           const userId = userResponse.data._id;
@@ -92,10 +92,10 @@ const ServiceDetailsPage = () => {
           comment,
         };
 
-        await axios.post("/api/reviews", newReview, config);
+        await axios.post(`${API_BASE_URL}/api/reviews`, newReview, config);
 
         const updatedReviewsResponse = await axios.get(
-          `/api/reviews/service/${id}`
+          `${API_BASE_URL}/api/reviews/service/${id}`
         );
         setReviews(updatedReviewsResponse.data);
         setRating(0);
