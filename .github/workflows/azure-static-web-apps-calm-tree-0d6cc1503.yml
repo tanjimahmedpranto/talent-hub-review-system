@@ -3,7 +3,7 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - main
+      - main  # Change if your default branch is different
   pull_request:
     types:
       - opened
@@ -18,10 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Build and Deploy Frontend
+    - name: Build and Deploy App
       uses: Azure/static-web-apps-deploy@v1
       with:
         azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-        action: upload
-        app_location: "talent-hive-review-system"  # Path to your React app
-        output_location: "dist"  # Vite's build output
+        action: "upload"
+        app_location: "/"  # Root of your repository
+        output_location: "dist"  # Default output folder for Vite builds
