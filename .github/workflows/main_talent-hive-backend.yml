@@ -14,19 +14,34 @@ jobs:
       contents: read
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout code from repository
         uses: actions/checkout@v4
 
+      # Step 2: Set up Node.js (Optional if needed)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies and build
+        run: |
+          cd ./backend
+          npm install
+          npm run build --if-present
+
+      # Step 3: Login to Azure
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ED4EE4AA3DF147EDBABC3197A58F8411 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C210EF81D2734726800212DF4E2C6CE1 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2E5A2373CEDD480CAEB1DF3EC1AB84B9 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
+          
 
+      # Step 4: Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'talent-hive-backend' # Replace with your App Service name
-          slot-name: 'Production'
           package: ./backend
