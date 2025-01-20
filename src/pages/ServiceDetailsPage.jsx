@@ -25,7 +25,12 @@ const ServiceDetailsPage = () => {
         const response = await axios.get(
           `${API_BASE_URL}/api/reviews/service/${id}`
         );
-        setReviews(response.data);
+        // Sort reviews by createdAt in descending order
+        const sortedReviews = response.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+
+        setReviews(sortedReviews);
 
         // NEW CODE: Check if the current user has already reviewed the service
         const token = localStorage.getItem("token");
