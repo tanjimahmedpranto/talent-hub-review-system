@@ -153,7 +153,7 @@ const ServiceDetailsPage = () => {
     : 0;
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
+    <div>
       <div className="flex items-start justify-between gap-6 mb-8">
         {/* Left Section: Image */}
         <div className="w-1/4">
