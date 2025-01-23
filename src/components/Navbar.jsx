@@ -38,33 +38,35 @@ const Navbar = () => {
         <div
           className={`${
             isMobileMenuOpen ? "block" : "hidden"
-          } absolute top-16 left-0 w-full bg-white sm:static sm:w-auto sm:flex sm:items-center sm:space-x-8`}
+          } absolute top-16 left-0 w-full bg-white sm:static sm:block sm:w-auto`}
         >
-          <NavLink to="/services">Services</NavLink>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8">
+            <NavLink to="/services">Services</NavLink>
 
-          {userData ? (
-            <button
-              onClick={handleLogout}
-              className="ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
-            >
-              Logout ({userData.email})
-            </button>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                className="ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
+            {userData ? (
+              <button
+                onClick={handleLogout}
+                className="ml-0 sm:ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
               >
-                Sign In
-              </Link>
-              <Link
-                to="/signup"
-                className="ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
-              >
-                Sign Up
-              </Link>
-            </>
-          )}
+                Logout ({userData.email})
+              </button>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="ml-0 sm:ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/signup"
+                  className="mt-2 sm:mt-0 ml-0 sm:ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>
@@ -75,7 +77,7 @@ const Navbar = () => {
 const NavLink = ({ to, children }) => (
   <Link
     to={to}
-    className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:inline"
+    className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:px-0"
   >
     {children}
   </Link>
