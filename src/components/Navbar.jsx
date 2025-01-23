@@ -87,7 +87,7 @@ const NavLink = ({ to, children }) => (
   <Link
     to={to}
     className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:px-0"
-    onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+    
   >
     {children}
   </Link>
