@@ -193,7 +193,7 @@ const ServiceDetailsPage = () => {
       </div>
 
       {/* Reviews Section */}
-      <div className="w-1/2 sm:w-full mb-8 mt-6">
+      <div className="w-full md:w-1/2 mb-8 mt-6">
         <h2 className="text-2xl font-semibold mb-4 text-gray-700">Reviews</h2>
         {/* ADV RAT: Advanced Rating Component */}
         {totalReviews > 0 && (
@@ -322,7 +322,7 @@ const ServiceDetailsPage = () => {
       </Modal>
 
       {/* Add Review Section */}
-      <div className="w-1/3 sm:w-full p-6 bg-[#eeeeee] rounded shadow-md">
+      <div className="w-full md:w-1/2 p-6 bg-[#eeeeee] rounded shadow-md">
         <h2 className="text-2xl font-semibold mb-4 text-gray-700">
           Write a Review
         </h2>
