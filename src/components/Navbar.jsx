@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-start h-16 px-4 space-x-4">
         {/* Logo */}
         <div>
-          <Link to="/" className="text-2xl font-bold text-gold-700">
+          <Link to="/" className="text-2xl font-bold text-gold-700 onClick={() => setIsMobileMenuOpen(false)}">
             Talent Hive
           </Link>
         </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
               isMobileMenuOpen ? "space-y-4 p-4 sm:space-y-0 sm:p-0" : "sm:space-x-8"
             }`}
           >
-            <NavLink to="/services">Services</NavLink>
+            <NavLink to="/services" onClick={() => setIsMobileMenuOpen(false)}>Services</NavLink>
 
             {userData ? (
               <button
