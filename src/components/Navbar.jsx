@@ -82,23 +82,16 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ to, children }) => {
-  const handleClick = (event) => {
-    if (setIsMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
-  };
-
-  return (
-    <Link
-      to={to}
-      className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:px-0"
-      onClick={handleClick} // Ensure React Router navigation isn't disrupted
-    >
-      {children}
-    </Link>
-  );
-};
+// Define the NavLink component
+const NavLink = ({ to, children }) => (
+  <Link
+    to={to}
+    className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:px-0"
+    
+  >
+    {children}
+  </Link>
+);
 
 
 // Prop validation for NavLink
