@@ -1,21 +1,24 @@
-// src/components/Navbar.jsx
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types"; // Import PropTypes for validation
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/authActions";
+import { useState } from "react"; // Import useState
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleLogout = () => {
     dispatch(logoutUser());
     navigate("/login");
   };
+
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="container flex items-center justify-start h-16 space-x-8">
+      <div className="container flex items-center justify-between h-16 px-4">
         {/* Logo */}
         <div>
           <Link to="/" className="text-2xl font-bold text-gold-700">
@@ -23,8 +26,20 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Hamburger Menu Button for Mobile */}
+        <button
+          className="sm:hidden text-gold-700 text-2xl"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          ☰
+        </button>
+
         {/* Navigation Links */}
-        <div className="hidden sm:flex space-x-8 items-center">
+        <div
+          className={`${
+            isMobileMenuOpen ? "block" : "hidden"
+          } absolute top-16 left-0 w-full bg-white sm:static sm:w-auto sm:flex sm:items-center sm:space-x-8`}
+        >
           <NavLink to="/services">Services</NavLink>
 
           {userData ? (
@@ -60,7 +75,7 @@ const Navbar = () => {
 const NavLink = ({ to, children }) => (
   <Link
     to={to}
-    className="text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200"
+    className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:inline"
   >
     {children}
   </Link>
