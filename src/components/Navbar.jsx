@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types"; // Import PropTypes for validation
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/authActions";
@@ -10,6 +10,13 @@ const Navbar = () => {
   const { userData } = useSelector((state) => state.auth);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false); // Close the mobile menu on route change
+  }, [location]);
+
 
   const handleLogout = () => {
     dispatch(logoutUser());
