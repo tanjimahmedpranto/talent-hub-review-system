@@ -2,7 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types"; // Import PropTypes for validation
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/authActions";
-import { useState } from "react"; // Import useState
+import { useState, useEffect  } from "react"; // Import useState
 
 const Navbar = () => {
   const navigate = useNavigate();
