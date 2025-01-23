@@ -44,12 +44,15 @@ const Navbar = () => {
             <NavLink to="/services">Services</NavLink>
 
             {userData ? (
-              <button
-                onClick={handleLogout}
-                className="ml-0 sm:ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
-              >
-                Logout ({userData.email})
-              </button>
+<button
+  onClick={() => {
+    handleLogout();
+    setIsMobileMenuOpen(false); // Close menu after logout
+  }}
+  className="ml-0 sm:ml-6 bg-gold-700 text-white font-semibold text-lg px-6 py-2 rounded-md shadow-md hover:bg-gold-600 transition-all duration-200"
+>
+  Logout ({userData.email})
+</button>
             ) : (
               <>
                 <Link
@@ -78,6 +81,7 @@ const NavLink = ({ to, children }) => (
   <Link
     to={to}
     className="block text-gold-700 hover:text-gold-600 text-lg font-medium transition-colors duration-200 px-4 py-2 sm:px-0"
+    onClick={() => setIsMobileMenuOpen(false)}
   >
     {children}
   </Link>
